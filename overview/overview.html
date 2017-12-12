@@ -7,18 +7,21 @@
         <div id="map" class="view">
             <img class="fill" id="background" src="Hanamura.png" />
             <div id="crop_a">
-                <div class="view">
+                <div id="view_a" class="view">
+                    <div class="heatmap-container"></div>
                     <h1>Current Performance</h1>
                 </div>
             </div>
             <div id="crop_b">
-                <div class="view">
+                <div id="view_b" class="view">
+                    <div class="heatmap-container"></div>
                     <h1>Career Average</h1>
                 </div>
             </div>
             <div id="splitter"></div>
         </div>
 
+        <script src="../libs/heatmap.min.js"></script>
         <script>
             document.onmousemove = function(event) {
                 var rectangle =
@@ -36,6 +39,78 @@
                 document.getElementById("splitter").style.left =
                     (split * 100) + "%";
             }
+
+            var healingColor = 'yellow';
+            var damageColor = 'cyan';
+
+            var heatmapContainerA =
+                document.querySelector("#view_a .heatmap-container");
+
+            var currentHealing = h337.create({
+                container: heatmapContainerA,
+                gradient: {
+                    1: healingColor
+                }
+            });
+            var currentDamage = h337.create({
+                container: heatmapContainerA,
+                gradient: {
+                    1: damageColor
+                }
+            });
+
+            heatmapContainerA.style.width = "100%";
+            heatmapContainerA.style.height = "100%";
+
+            currentHealing.setData({
+                min: 0, max: 100,
+                data: [
+                    { x: 650, y: 350, value: 100 },
+                    { x: 650, y: 400, value: 100 }
+                ]
+            });
+            currentDamage.setData({
+                min: 0, max: 100,
+                data: [
+                    { x: 600, y: 200, value: 100 },
+                    { x: 650, y: 350, value: 100 }
+                ]
+            });
+
+            var heatmapContainerB =
+                document.querySelector("#view_b .heatmap-container");
+
+            var averageDamage = h337.create({
+                container: heatmapContainerB,
+                gradient: {
+                    1: damageColor
+                }
+            });
+
+            var averageHealing = h337.create({
+                container: heatmapContainerB,
+                gradient: {
+                    1: healingColor
+                }
+            });
+
+            heatmapContainerB.style.width = "100%";
+            heatmapContainerB.style.height = "100%";
+
+            averageDamage.setData({
+                min: 0, max: 100,
+                data: [
+                    { x: 600, y: 300, value: 100 },
+                    { x: 700, y: 350, value: 100 }
+                ]
+            });
+            averageHealing.setData({
+                min: 0, max: 100,
+                data: [
+                    { x: 600, y: 400, value: 100 },
+                    { x: 650, y: 350, value: 100 }
+                ]
+            });
         </script>
     </body>
 </html>
