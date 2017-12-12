@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<!--
+		<svg width="300" height="200">
+		  <polygon points="0,0 100,0 100,40 50,60 0,40" style="fill:#218ffe;" />
+		  <text fill="#e3f2ff" font-size="30" x="20" y="35" font-family="overwatch">6x Q</text>
+		</svg>
+		-->
+		
+		<div id="map">
+		</div>
+		<div id="navBar">
+			<div id="navBarCloseButton">></div>
+			<h1>General</h1>
+			<select name="map">
+				<option value="hanamura">Hanamura</option>
+				<option value="ilios">Ilios</option>
+			</select>
+			<br />
+			<select id="heroSelect">
+				<option value="mercy">Mercy</option>
+				<option value="soldier76">Soldier 76</option>
+			</select>
+
+			<h1>Stats</h1>
+			<form action="">
+				<input type="radio" name="stats" value="eliminations" checked> Eliminations <br />
+				<input type="radio" name="stats" value="soloKills"> Solo Kills <br />
+				<input type="radio" name="stats" value="damageDone"> Damage Done <br />
+			</form>
+
+			<h1>Abilities</h1>
+			<form action="" id="abilities">
+				<input type="checkbox" value="q"> Q - Valkyrie<br />
+				<input type="checkbox" value="e"> E - Resurrect<br />
+				<input type="checkbox" value="lshift"> LSHIFT - Guardian Angel<br />
+			</form>
+		</div>
+		<div id="navBarShowButton"><</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="script.js"></script>
+</html>
