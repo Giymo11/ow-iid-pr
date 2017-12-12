@@ -1,71 +1,21 @@
 <html>
     <head>
         <link rel="stylesheet" href="../global.css">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-            }
-            body {
-                overflow: hidden;
-            }
-            #map {
-                width: 100vw;
-                height: 100vh;
-                max-height: calc(100vw * 9 / 16);
-                max-width: calc(100vh * 16 / 9);
-
-                margin: auto;
-                position: absolute;
-                top: 0;
-                bottom:0;
-                left: 0;
-                right:0;
-            }
-            .fill {
-                position: absolute;
-                top: 0;
-                left: 0;
-
-                width: 100%;
-                height: 100%;
-            }
-            #data_a {
-                background-image: url("Hanamura A.png");
-                background-size: cover;
-                background-position: left;
-
-                position: absolute;
-                height: 100%;
-                right: 50%;
-                left: 0;
-            }
-            #data_b {
-                background-image: url("Hanamura B.png");
-                background-size: cover;
-                background-position: right;
-
-                position: absolute;
-                height: 100%;
-                right: 0;
-                left: 50%;
-            }
-            #splitter {
-                position: absolute;
-                left: 50%;
-
-                background-color: #000;
-                width: 1%;
-                height: 100%;
-                margin-left: -0.5%;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="map">
+        <div id="map" class="view">
             <img class="fill" id="background" src="Hanamura.png" />
-            <div id="data_a"></div>
-            <div id="data_b"></div>
+            <div id="crop_a">
+                <div class="view">
+                    <h1>Current Performance</h1>
+                </div>
+            </div>
+            <div id="crop_b">
+                <div class="view">
+                    <h1>Career Average</h1>
+                </div>
+            </div>
             <div id="splitter"></div>
         </div>
 
@@ -79,9 +29,9 @@
 
                 split = Math.min(Math.max(split, 0), 1);
 
-                document.getElementById("data_a").style.right =
+                document.getElementById("crop_a").style.right =
                     (100 - split * 100) + "%";
-                document.getElementById("data_b").style.left =
+                document.getElementById("crop_b").style.left =
                     (split * 100) + "%";
                 document.getElementById("splitter").style.left =
                     (split * 100) + "%";

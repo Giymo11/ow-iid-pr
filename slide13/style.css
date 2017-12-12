@@ -3,15 +3,6 @@ body {
 	overflow: hidden;
 }
 
-h1 {
-	font-family: overwatch-italic;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    font-size: 50px;
-    color: #fff;
-    text-shadow: 0px 0px 3px #cecece;
-}
-
 #navBar {
 	float: right;
 	width: 210px;
