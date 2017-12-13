@@ -97,8 +97,9 @@
                         { x: 650, y: 400, value: 100 }
                     ],
                     deaths: [
-                        {x: 600, y: 400, radius: 50, count: 5},
-                        {x: 700, y: 300, radius: 20, count: 2}
+                        {x: 800, y: 300, radius: 50, count: 3},
+                        {x: 700, y: 350, radius: 30, count: 2},
+                        {x: 600, y: 500, radius: 30, count: 2}
                     ]
                 },
                 average: {
@@ -111,7 +112,8 @@
                         { x: 650, y: 350, value: 100 }
                     ],
                     deaths: [
-                        {x: 650, y: 350, radius: 40, count: 3}
+                        {x: 650, y: 350, radius: 40, count: 2},
+                        {x: 600, y: 550, radius: 20, count: 1},
                     ]
                 }
             };
@@ -137,7 +139,7 @@
             }
 
             function load(container, data) {
-                var currentHealing = h337.create({
+                /*var currentHealing = h337.create({
                     container: container,
                     gradient: {
                         1: healingColor
@@ -157,7 +159,7 @@
                 currentDamage.setData({
                     min: 0, max: 100,
                     data: data.damage
-                });
+                });*/
 
                 for (const death of data.deaths) {
                     container.insertAdjacentHTML(

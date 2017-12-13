@@ -55,6 +55,11 @@ body {
     left: 0;
 }
 
+#crop_a .view {
+    background-image: url("Hanamura A.png");
+    background-size: contain;
+}
+
 #crop_b {
     right: 0;
     left: 50%;
@@ -63,6 +68,9 @@ body {
 #crop_b .view {
     position: absolute;
     right: 0;
+
+    background-image: url("Hanamura B.png");
+    background-size: contain;
 }
 
 h1 {
