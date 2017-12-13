@@ -5,6 +5,7 @@
 
 body {
     overflow: hidden;
+    background-color: #000;
 }
 
 #splitter {
@@ -140,4 +141,45 @@ h1 {
     font-size: 0.7vw;
     top: 0.4vw;
     left: -0.2vw;
+}
+
+#legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
+}
+
+#legend div {
+    margin: 8px;
+}
+
+.color {
+    display: inline-block;
+    border-width: 1px;
+    border-color: #fff;
+    border-style: solid;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+}
+
+.damage {
+    background-color: cyan;
+}
+
+.healing {
+    background-color: yellow;
+}
+
+.kills {
+    background-color: black;
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    text-align: center;
+    margin-left: -5px;
+    margin-right: 3px;
 }
