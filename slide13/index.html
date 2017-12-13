@@ -10,9 +10,8 @@
 			<text fill="#e3f2ff" font-size="30" x="20" y="35" font-family="overwatch">6x Q</text>
 		</svg>
 		-->
-
-		<div id="map">
-		</div>
+		<img id="hanamuraImage" class="fill" id="background" src="Hanamura.png" />
+		<img id="ilinoisImage" class="fill" id="background" src="Ilinois.jpg" />
 		<div id="navBar">
 			<div id="navBarCloseButton">></div>
 			<h1>General</h1>
@@ -27,7 +26,7 @@
 			</select>
 
 			<h1>Stats</h1>
-			<form action="">
+			<form action="" id="statsSelect">
 				<input type="radio" name="stats" value="eliminations" checked> Eliminations <br />
 				<input type="radio" name="stats" value="soloKills"> Solo Kills <br />
 				<input type="radio" name="stats" value="damageDone"> Damage Done <br />
@@ -39,9 +38,12 @@
 				<input type="checkbox" value="e"> E - Resurrect<br />
 				<input type="checkbox" value="lshift"> LSHIFT - Guardian Angel<br />
 			</form>
+			<div id="allStatsButton">Show Full Statistics</div>
 		</div>
 		<div id="navBarShowButton"><</div>
+		<div class="heatmap-container"></div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="../libs/heatmap.min.js"></script>
 	<script src="script.js"></script>
 </html>

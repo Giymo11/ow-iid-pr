@@ -3,6 +3,15 @@ body {
 	overflow: hidden;
 }
 
+.fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
 #navBar {
 	float: right;
 	width: 210px;
@@ -14,7 +23,7 @@ body {
     opacity: 0.93;
 }
 
-form, select {
+form, select, div {
     color: #e3f2ff;
     text-shadow: 0 0 2px #336cec;
 }
@@ -30,10 +39,6 @@ select {
 	display: none;
 }
 
-svg:first-child {
-	display: none;
-}
-
 #navBarCloseButton {
 	color: white;
 	position: fixed;
@@ -46,8 +51,8 @@ svg:first-child {
     right: 217px;
 }
 
-#navBarCloseButton:hover, #navBarShowButton:hover {
-	background-color: #f99e1a;
+#navBarCloseButton:hover, #navBarShowButton:hover, #allStatsButton:hover, #mapSelect:hover, #heroSelect:hover {
+	background-color: #4da5fe;
 }
 
 #navBarShowButton {
@@ -65,4 +70,25 @@ svg:first-child {
 
 svg {
 	position: absolute;
+}
+
+#ilinoisImage {
+	display: none;
+}
+
+#allStatsButton {
+	background-color: #218ffe;
+	width: 122px;
+    padding: 15px 25px 15px 25px;
+    margin-top: 35px;
+}
+
+.heatmap-container {
+    width: 1280px;
+    height: 720px;
+}
+
+.heatmap-canvas {
+    width: 100%;
+    height: 100%;
 }
