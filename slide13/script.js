@@ -1,7 +1,8 @@
-var eliminations = '{ "hanamura": { "mercy":[ {"x":0.3,"y":0.5,"radius":1,"count":4}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] }, "ilios": { "mercy":[ {"x":0.4,"y":0.5,"radius":0.3,"count":1}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] } }';
-var abilityMarkers = '{ "hanamura": { "mercy":[ {"x":0.1,"y":0.3,"text":"7x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"6x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]}, "ilios": {"mercy":[ {"x":0.1,"y":0.3,"text":"6x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"6x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]} }';
-var soloKillsHeatmapData = '{ "hanamura": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 100, "y": 350, "value": 50 }, { "x": 650, "y": 400, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
-var damageDoneHeatmapData = '{ "hanamura": { "mercy": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ], "soldier": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
+// var eliminations = '{ "hanamura": { "mercy":[ {"x":0.3,"y":0.5,"radius":1,"count":4}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] }, "ilios": { "mercy":[ {"x":0.4,"y":0.5,"radius":0.3,"count":1}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] } }';
+var eliminations = OwData.genEliminationCluster();
+var abilityMarkers =  OwData.genAbilityMarkers(); //'{ "hanamura": { "mercy":[ {"x":0.1,"y":0.3,"text":"7x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"6x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]}, "ilios": {"mercy":[ {"x":0.1,"y":0.3,"text":"6x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"6x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]} }';
+var soloKillsHeatmapData = OwData.genHealingHeatmapData($(window).width(), $(window).height()); // '{ "hanamura": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 100, "y": 350, "value": 50 }, { "x": 650, "y": 400, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
+var damageDoneHeatmapData = OwData.genDamageHeatmapData($(window).width(), $(window).height()); //'{ "hanamura": { "mercy": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ], "soldier": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
 
 var healingColor = 'yellow';
 var damageColor = 'cyan';
@@ -11,14 +12,18 @@ var heatmapContainerA = document.querySelector(".heatmap-container");
 var soloKills = h337.create({
     container: heatmapContainerA,
     gradient: {
-        1: healingColor
-    }
+		'0.5': healingColor,
+		'0.95': 'white'
+	},
+	maxOpacity: .9,
 });
 var damageDone = h337.create({
     container: heatmapContainerA,
     gradient: {
-        1: damageColor
-    }
+        '0.5': damageColor,
+		'0.95': 'white'
+    },
+	maxOpacity: .9,
 });
 
 heatmapContainerA.style.width = "100%";
@@ -70,7 +75,7 @@ function placeEliminationsCircle(jsonEliminations) {
 
 function updateStats() {
 	$("svg.eliminationsMarker").remove();
-	jsonEliminations = JSON.parse(eliminations)[$("#mapSelect").val()][$("#heroSelect").val()];
+	jsonEliminations = eliminations[$("#mapSelect").val()][$("#heroSelect").val()];
 	var selectedStats = $("#statsSelect input:checked").val();
 	if (selectedStats == "eliminations") {
 		damageDone.setData({data: []});
@@ -79,21 +84,21 @@ function updateStats() {
 	} else if (selectedStats == "soloKills") {
 		damageDone.setData({data: []});
 		soloKills.setData({
-		    min: 0, max: 100,
-		    data: JSON.parse(soloKillsHeatmapData)[$("#mapSelect").val()][$("#heroSelect").val()]
+		    min: 0, max: 200,
+		    data: soloKillsHeatmapData[$("#mapSelect").val()][$("#heroSelect").val()]
 		});
 	} else {
 		soloKills.setData({data: []});
 		damageDone.setData({
-		    min: 0, max: 100,
-		    data: JSON.parse(damageDoneHeatmapData)[$("#mapSelect").val()][$("#heroSelect").val()]
+		    min: 0, max: 200,
+		    data: damageDoneHeatmapData[$("#mapSelect").val()][$("#heroSelect").val()]
 		});
 	}
 }
 
 $(document).ready(function() {
-	var jsonEliminations = JSON.parse(eliminations)["hanamura"]["mercy"];
-	var jsonMarkers = JSON.parse(abilityMarkers)["hanamura"]["mercy"];
+	var jsonEliminations = eliminations["hanamura"]["mercy"];
+	var jsonMarkers = abilityMarkers["hanamura"]["mercy"];
 	placeEliminationsCircle(jsonEliminations);
 
 	$("#statsSelect").change(function() {
@@ -101,7 +106,7 @@ $(document).ready(function() {
 	});
 
 	$("#abilities").change(function() {
-		jsonMarkers = JSON.parse(abilityMarkers)[$("#mapSelect").val()][$("#heroSelect").val()];
+		jsonMarkers = abilityMarkers[$("#mapSelect").val()][$("#heroSelect").val()];
 		placeMarkers(jsonMarkers);
 	});
 
@@ -123,8 +128,8 @@ $(document).ready(function() {
 	});
 
 	$("#mapSelect").change(function() {
-		jsonMarkers = JSON.parse(abilityMarkers)[$("#mapSelect").val()][$("#heroSelect").val()];
-		jsonEliminations = JSON.parse(eliminations)[$("#mapSelect").val()][$("#heroSelect").val()];
+		jsonMarkers = abilityMarkers[$("#mapSelect").val()][$("#heroSelect").val()];
+		jsonEliminations = eliminations[$("#mapSelect").val()][$("#heroSelect").val()];
 		placeMarkers(jsonMarkers);
 		updateStats();
 
@@ -140,8 +145,8 @@ $(document).ready(function() {
 	$("#heroSelect").change(function() {
 		$("#abilities").empty();
 		$("svg.abilityMarker").remove();
-		jsonMarkers = JSON.parse(abilityMarkers)[$("#mapSelect").val()][$("#heroSelect").val()];
-		jsonEliminations = JSON.parse(eliminations)[$("#mapSelect").val()][$("#heroSelect").val()];
+		jsonMarkers = abilityMarkers[$("#mapSelect").val()][$("#heroSelect").val()];
+		jsonEliminations = eliminations[$("#mapSelect").val()][$("#heroSelect").val()];
 		updateStats();
 		if ($("#heroSelect").val() == "mercy") {
 			$("#abilities").append("<input type='checkbox' value='q'> Q - Valkyrie<br />");
