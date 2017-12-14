@@ -1,8 +1,10 @@
-// var eliminations = '{ "hanamura": { "mercy":[ {"x":0.3,"y":0.5,"radius":1,"count":4}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] }, "ilios": { "mercy":[ {"x":0.4,"y":0.5,"radius":0.3,"count":1}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] } }';
-var eliminations = OwData.genEliminationCluster();
-var abilityMarkers =  OwData.genAbilityMarkers(); //'{ "hanamura": { "mercy":[ {"x":0.1,"y":0.3,"text":"7x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"6x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]}, "ilios": {"mercy":[ {"x":0.1,"y":0.3,"text":"6x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"6x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]} }';
-var soloKillsHeatmapData = OwData.genHealingHeatmapData($(window).width(), $(window).height()); // '{ "hanamura": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 100, "y": 350, "value": 50 }, { "x": 650, "y": 400, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
-var damageDoneHeatmapData = OwData.genDamageHeatmapData($(window).width(), $(window).height()); //'{ "hanamura": { "mercy": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ], "soldier": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
+var eliminations = '{ "hanamura": { "mercy":[ {"x":0.3,"y":0.5,"radius":1,"count":4}, {"x":0.1,"y":0.5,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.2,"y":0.4,"radius":1,"count":5}, {"x":0.3,"y":0.6,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1}, {"x":0.7,"y":0.6,"radius":1.0,"count":1}, {"x":0.5,"y":0.5,"radius":1.0,"count":9} ] }, "ilios": { "mercy":[ {"x":0.4,"y":0.5,"radius":0.6,"count":2}, {"x":0.3,"y":0.4,"radius":0.3,"count":1}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ], "soldier":[ {"x":0.3,"y":0.5,"radius":1,"count":9}, {"x":0.1,"y":0.5,"radius":0.3,"count":2}, {"x":0.6,"y":0.5,"radius":0.3,"count":1} ] } }';
+eliminations = JSON.parse(eliminations);
+//var eliminations = OwData.genEliminationCluster();
+var abilityMarkers =  '{ "hanamura": { "mercy":[ {"x":0.1,"y":0.3,"text":"3x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"2x Q","radius":0.5}, {"x":0.5,"y":0.7,"text":"6x LSHIFT","radius":0.3}, {"x":0.4,"y":0.5,"text":"3x E","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]}, "ilios": {"mercy":[ {"x":0.1,"y":0.3,"text":"3x Q","radius":1.0}, {"x":0.4,"y":0.7,"text":"4x Q","radius":1.0}, {"x":0.2,"y":0.3,"text":"2x Q","radius":0.5}, {"x":0.5,"y":0.5,"text":"3x LSHIFT","radius":0.3} ], "soldier":[ {"x":0.2,"y":0.3,"text":"8x Q","radius":0.2}, {"x":0.9,"y":0.3,"text":"6x Q","radius":0.9}, {"x":0.5,"y":0.7,"text":"6x E","radius":0.8} ]} }';
+abilityMarkers = JSON.parse(abilityMarkers);
+var soloKillsHeatmapData = OwData.genHealingHeatmapData(1280, 720); // '{ "hanamura": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 100, "y": 350, "value": 50 }, { "x": 650, "y": 400, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
+var damageDoneHeatmapData = OwData.genDamageHeatmapData(1280, 720); //'{ "hanamura": { "mercy": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ], "soldier": [ { "x": 600, "y": 200, "value": 100 }, { "x": 650, "y": 350, "value": 100 } ] }, "ilios": { "mercy": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ], "soldier": [ { "x": 650, "y": 350, "value": 100 }, { "x": 650, "y": 400, "value": 100 } ] } }';
 
 var healingColor = 'yellow';
 var damageColor = 'cyan';
@@ -28,6 +30,31 @@ var damageDone = h337.create({
 
 heatmapContainerA.style.width = "100%";
 heatmapContainerA.style.height = "100%";
+
+$(".heatmap-container").append("<div class='tooltip' style='z-index: 9999999'></div>");
+var heatmapInstance = soloKills;
+var demoWrapper = heatmapContainerA;
+var tooltip = document.querySelector('.tooltip');
+function updateTooltip(x, y, value) {
+	// + 15 for distance to cursor
+	var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
+	tooltip.style.webkitTransform = transl;
+	tooltip.innerHTML = value;
+};
+demoWrapper.onmousemove = function(ev) {
+	var selectedStats = $("#statsSelect input:checked").val();
+	if (selectedStats != "eliminations") {
+		var x = ev.layerX;
+		var y = ev.layerY;
+		// getValueAt gives us the value for a point p(x/y)
+		var value = heatmapInstance.getValueAt({
+			x: (ev.layerX / $(window).width()) * 1280,
+			y: (ev.layerY / $(window).height()) * 720
+		});
+		tooltip.style.display = 'block';
+		updateTooltip(x, y, value);
+	}
+};
 
 function drawShortMarker(value) {
 	var svgMarker = $("<svg class='abilityMarker' width='300' height='300'><circle cx='100' cy='100' r='" + value.radius * 70 + "' stroke='#218ffe' stroke-width='5' fill='#218ffe' fill-opacity='0.5' stroke-dasharray='10' /><polygon points='50,50 150,50 150,90 100,110 50,90' style='fill:#218ffe;' /><text fill='#e3f2ff' font-size='30' x='70' y='82' font-family='overwatch'>" + value.text + "</text></svg>").css({
@@ -78,16 +105,21 @@ function updateStats() {
 	jsonEliminations = eliminations[$("#mapSelect").val()][$("#heroSelect").val()];
 	var selectedStats = $("#statsSelect input:checked").val();
 	if (selectedStats == "eliminations") {
+		$(".tooltip").hide();
 		damageDone.setData({data: []});
 		soloKills.setData({data: []});
 		placeEliminationsCircle(jsonEliminations);
 	} else if (selectedStats == "soloKills") {
+		$(".tooltip").show();
+		heatmapInstance = soloKills;
 		damageDone.setData({data: []});
 		soloKills.setData({
 		    min: 0, max: 200,
 		    data: soloKillsHeatmapData[$("#mapSelect").val()][$("#heroSelect").val()]
 		});
 	} else {
+		$(".tooltip").show();
+		heatmapInstance = damageDone;
 		soloKills.setData({data: []});
 		damageDone.setData({
 		    min: 0, max: 200,
