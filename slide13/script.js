@@ -187,7 +187,6 @@ $(document).ready(function() {
 		} else {
 			$("#abilities").append("<input type='checkbox' value='q'> Q - Tactical Visor<br />");
 			$("#abilities").append("<input type='checkbox' value='e'> E - Biotic Field<br />");
-			$("#abilities").append("<input type='checkbox' value='lshift'> LSHIFT - Sprint<br />");
 		}
 	});
 });
