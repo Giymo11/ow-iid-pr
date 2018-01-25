@@ -57,14 +57,14 @@ demoWrapper.onmousemove = function(ev) {
 };
 
 function drawShortMarker(value) {
-	var svgMarker = $("<svg class='abilityMarker' width='300' height='300'><circle cx='100' cy='100' r='" + value.radius * 70 + "' stroke='#218ffe' stroke-width='5' fill='#218ffe' fill-opacity='0.5' stroke-dasharray='10' /><polygon points='50,50 150,50 150,90 100,110 50,90' style='fill:#218ffe;' /><text fill='#e3f2ff' font-size='30' x='70' y='82' font-family='overwatch'>" + value.text + "</text></svg>").css({
+	var svgMarker = $("<svg class='abilityMarker' width='300' height='300'><polygon points='50,50 150,50 150,90 100,110 50,90' style='fill:#218ffe;' /><text fill='#e3f2ff' font-size='30' x='70' y='82' font-family='overwatch'>" + value.text + "</text></svg>").css({
 		'transform': 'translate(' + $(window).width() * value.x + 'px,' + $(window).height() * value.y + 'px)'
 	});
 	$(".heatmap-container").prepend(svgMarker);
 }
 
 function drawLongMarker(value) {
-	var svgMarker = $("<svg class='abilityMarker' width='300' height='200'><circle cx='125' cy='100' r='" + value.radius * 70 + "' stroke='#218ffe' stroke-width='2' fill='#218ffe' fill-opacity='0.5' stroke-dasharray='10' /><polygon points='50,50 200,50 200,90 125,110 50,90' style='fill:#218ffe;' /><text fill='#e3f2ff' font-size='30' x='64' y='82' font-family='overwatch'>" + value.text + "</text></svg>").css({
+	var svgMarker = $("<svg class='abilityMarker' width='300' height='200'><polygon points='50,50 200,50 200,90 125,110 50,90' style='fill:#218ffe;' /><text fill='#e3f2ff' font-size='30' x='64' y='82' font-family='overwatch'>" + value.text + "</text></svg>").css({
 		'transform': 'translate(' + $(window).width() * value.x + 'px,' + $(window).height() * value.y + 'px)'
 	});
 	$(".heatmap-container").prepend(svgMarker);
